@@ -1,0 +1,179 @@
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: #232323;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+input, textarea {
+  outline: none;
+  border: none;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix:after {
+  content: ".";
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  display: block;
+  clear: both;
+  overflow: hidden;
+}
+
+.fl {
+  float: left
+}
+
+.fr {
+  float: right
+}
+
+.tl {
+  text-align: left;
+}
+
+.tc {
+  text-align: center
+}
+
+.tr {
+  text-align: right;
+}
+
+.ellipse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inline {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/******clear default style******/
+$defaultSize:12px;
+$defaultColor:#333;
+@mixin clearfix(){
+  &:before,&:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+@mixin w_h($width,$height){
+  width: $width;
+  height: $height;
+}
+@mixin left(){
+  float: left;
+}
+@mixin right(){
+  float: right;
+}
+@mixin hover($color,$backColor){
+    &:hover{
+      color:$color;
+      background: $backColor;
+    }
+}
+@mixin active($color,$backColor){
+  .active{
+    color:$color;
+    background: $backColor;
+  }
+}
+
+
+
+body {
+  font-family: "微软";
+  font-size: $defaultSize;
+  color: $defaultColor;
+  background: #e9e9e9;
+}
+
+
+header{
+  @include clearfix;
+  @include w_h(100%,auto);
+  background: #0f418b;
+}
+section{
+  @include clearfix;
+}
+footer{
+  @include clearfix;
+}
+
+.header-nav{
+  @include clearfix;
+  @include right;
+  line-height: 50px;
+  li{
+    @include left;
+
+    a{
+      color: white;
+      display: inline-block;
+      font-size: $defaultSize*4/3;
+      padding: 0 20px;
+      cursor: pointer;
+      @include hover(#ffffff,#002357);
+    }
+    @include active(#ffffff,#002357);
+  }
+}
+
+.container{
+  background: white;
+}
+
+
+/******public style start******/
+
+
+
+
+
+/******public style end******/
